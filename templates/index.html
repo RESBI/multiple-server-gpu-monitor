@@ -48,7 +48,7 @@
 
             {% if server.active %}
             <p>
-	    	RAM: {{server.ram.info.used}} MiB / {{server.ram.info.total}} MiB % 
+	    	RAM usage: {{server.ram.info.used}} MiB / {{server.ram.info.total}} MiB 
 		<progress class="nes-progress is-success" value="{{server.ram.info.used}}" max="{{server.ram.info.total}}"></progress>
 	    </p>
             <div class="nes-table-responsive">
@@ -58,7 +58,7 @@
                             <th>ID</th>
                             <th>Name</th>
 			    <th>Temp</th>
-                            <th>Memory used</th>
+                            <th>Memory usage</th>
                             <th style="width: 300px;">Util gpu</th>
                         </tr>
                     </thead>
@@ -68,8 +68,8 @@
                             <td>{{gpu.index}}</td>
                             <td>{{gpu.name}}</td>
 			    <td>
-				<pre>{{gpu.temperature_gpu}}°C</pre>
-				<pre>{{gpu.temperature_memory}}°C</pre>
+				<pre>{{gpu.temperature_gpu}} °C</pre>
+				<pre>{{gpu.temperature_memory}} °C</pre>
 			    </td>
                             <td>
                                 <pre>{{"%6s MiB /%6s MiB"|format(gpu.memory_used,gpu.memory_total) }}</pre>
