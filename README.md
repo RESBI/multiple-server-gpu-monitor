@@ -4,7 +4,7 @@ In a computer science lab or company, you usually have multiple servers and GPUs
 
 ## Screenshots
 
-![](images/DeepinScreenshot_select-area_20230105184435.png)
+![](images/DeepinScreenshot_select-area_20230105194639.png)
 
 ## Installation
 
@@ -38,7 +38,7 @@ gunicorn -w 1 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:23333 server:app --dae
 
 "Master" means the web server which is going to fetch data from each servers. You can run this web server on any computer. In some case, you might want this web server to be accessible from public network, but still hide servers behind a firewall.
 
-1. create a file named `config.py`
+1. Edit `config.py`
 
 2. In `config.py`, you need to have a list of server ips. Then the web server will iterate from the list and GET the API at `http://{ip}:23333`.
 
