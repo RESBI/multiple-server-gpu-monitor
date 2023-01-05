@@ -14,25 +14,31 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 SITE_TITLE = CONFIG.get("site_title", "Server status")
 TOP_MESSAGE = CONFIG.get("top_message", "Hello world")
 
-if CONFIG.get("server_ips") is None:
+if CONFIG.get("servers") is None:
     raise ValueError()
-SERVER_IPS = CONFIG.get("server_ips")
+SERVERS = CONFIG.get("servers")
 
 
 @app.route('/')
 def server():
     servers = list()
     now = datetime.now(tz=tz).strftime("%Y-%m-%d %T")
-    for ip in SERVER_IPS:
-        resp = requests.get(f"http://{ip}:23333")
+
+    # Access and get infos.
+    for server in SERVERS:
+        [server_ip, server_name] = server
+        resp = requests.get(f"http://{server_ip}:23333")
+        # If no response
         if resp.status_code != 200:
             data = {
-                "ip": ip,
+                "ip": server_ip,
+                "name": server_name,
                 "active": False
             }
         else:
             data = json.loads(resp.text)
-            data["ip"] = ip
+            data["ip"] = server_ip
+            data["name"] = server_name
             data["active"] = True
         servers.append(data)
 
@@ -40,4 +46,6 @@ def server():
                "top_message": TOP_MESSAGE,
                "now": now,
                "servers": servers}
+
+    # Render the page and return.
     return render_template("index.html", **context)

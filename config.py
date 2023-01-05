@@ -1,7 +1,7 @@
 CONFIG = {
     "site_title": "Server status",
     "top_message": "Resbi's GPU servers.",
-    "server_ips": [
-        "0.0.0.0",
+    "servers": [
+        ["192.168.0.110", "RD450X-70T5003TCN"],
     ],
 }
