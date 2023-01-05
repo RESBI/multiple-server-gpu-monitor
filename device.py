@@ -2,20 +2,24 @@ import os
 import json
 
 class GPU():
-    def __init__(self, index, name, memory_total, memory_free, memory_used, utilization_gpu):
+    def __init__(self, index, name, temperature_gpu, temperature_memory, memory_total, memory_free, memory_used, utilization_gpu):
         self.index = index
         self.name = name
+        self.temperature_gpu = temperature_gpu
+        self.temperature_memory = temperature_memory
         self.memory_total = int(memory_total.split()[0])
         self.memory_free = int(memory_free.split()[0])
         self.memory_used = int(memory_used.split()[0])
         self.utilization_gpu = int(utilization_gpu.split()[0])
     def __repr__(self):
-        return f"GPU {self.index}: {self.name:20.20},{self.memory_used:>10}/{self.memory_total:<10},{self.utilization_gpu}"
+        return f"GPU {self.index}: {self.name:20.20},{self.tempreature_gpu},{self.temperature_memopry},{self.memory_used:>10}/{self.memory_total:<10},{self.utilization_gpu}"
 
     def get_info(self):
         return {
             "index": self.index,
             "name": self.name,
+            "temperature_gpu": self.temperature_gpu, 
+            "temperature_memory": self.temperature_memory, 
             "memory_total": self.memory_total,
             "memory_free": self.memory_free,
             "memory_used": self.memory_used,
@@ -27,6 +31,8 @@ class NvidiaSMI():
         query = [
             "index",
             "name",
+            "temperature.gpu", 
+            "temperature.memory", 
             "memory.total",
             "memory.free",
             "memory.used",
@@ -67,7 +73,7 @@ class NvidiaSMI():
 
 class RAM():
     def __init__(self):
-        info = os.popen("free -g").read().split('\n')[1].split()
+        info = os.popen("free -m").read().split('\n')[1].split()
         self.info = {
             'total': int(info[1]),
             'used': int(info[2]),

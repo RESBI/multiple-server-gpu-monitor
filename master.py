@@ -6,7 +6,7 @@ from datetime import datetime
 import pytz
 from config import CONFIG
 
-tz = pytz.timezone("Asia/Taipei")
+tz = pytz.timezone("Asia/Shanghai")
 
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
