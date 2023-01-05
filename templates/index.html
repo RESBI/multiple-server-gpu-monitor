@@ -43,8 +43,14 @@
 
         <div class="server">
             <p class="nes-badge" style="width: 100%;">
-                <span class="is-dark">{{server.ip}} </span>
+                <span class="is-dark">
+                    {{server.name}}
+                    <br>
+                    {{server.ip}}
+                </span>
             </p>
+            <br>
+            <br>
 
             {% if server.active %}
             <p>
@@ -61,7 +67,7 @@
                             <th>Name</th>
                             <th>Temp</th>
                             <th>Memory Usage</th>
-                            <th style="width: 300px;">Util gpu</th>
+                            <th style="width: 300px;">GPU Util</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -113,7 +119,7 @@
                 </table>
             </div>
             {% else %}
-            service down!
+            Server is down!
             <!-- 502 or error -->
             {% endif %}
         </div>
