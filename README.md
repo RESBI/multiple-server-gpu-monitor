@@ -4,7 +4,7 @@ In a computer science lab or company, you usually have multiple servers and GPUs
 
 ## Screenshots
 
-![](images/2021-02-04-04-07-46.png)
+![](images/DeepinScreenshot_select-area_20230105174124.png)
 
 ## Installation
 
@@ -73,7 +73,4 @@ Pull requests are welcome. This is still an early project (and just for fun).
 
 TODOs:
 
-- Fast installation script.
-- Handle error.
-- Use Nginx to serve the sites.
-- Use CI/CD to automatically update projects on servers.
+- Autorefresh
