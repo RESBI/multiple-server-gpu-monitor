@@ -4,7 +4,7 @@ In a computer science lab or company, you usually have multiple servers and GPUs
 
 ## Screenshots
 
-![](images/DeepinScreenshot_select-area_20230105175202.png)
+![](images/DeepinScreenshot_select-area_20230105184435.png)
 
 ## Installation
 
