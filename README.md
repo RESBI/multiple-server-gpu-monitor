@@ -69,18 +69,19 @@ gunicorn -w 1 -b 0.0.0.0:8787 master:app
 
 ### systemctl startup configuration 
 
-Notice that it's necessary to change the bianry executing code using absolute path: 
+Notice that it's necessary to change the bianry executing code into using the absolute path
 ```python
         ...
         info = os.popen("free -m").read().split('\n')[1].split()
         ...
 ```
-change it into something like:
+change it into something like
 ```python
         ...
         info = os.popen("/usr/bin/free -m").read().split('\n')[1].split()
+        ...
 ```
-by checking the absolute path of `free` and `nvidia-smi` using `which`. 
+by using `which` command to check the absolute path of `free` and `nvidia-smi`. 
 
 ## Contribution
 
