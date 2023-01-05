@@ -27,19 +27,27 @@ def server():
     # Access and get infos.
     for server in SERVERS:
         [server_ip, server_name] = server
-        resp = requests.get(f"http://{server_ip}:23333")
-        # If no response
-        if resp.status_code != 200:
+        try:
+            resp = requests.get(f"http://{server_ip}:23333")
+            # If no response
+            if resp.status_code != 200:
+                data = {
+                    "ip": server_ip,
+                    "name": server_name,
+                    "active": False
+                }
+            else:
+                data = json.loads(resp.text)
+                data["ip"] = server_ip
+                data["name"] = server_name
+                data["active"] = True
+        except:
             data = {
                 "ip": server_ip,
                 "name": server_name,
                 "active": False
             }
-        else:
-            data = json.loads(resp.text)
-            data["ip"] = server_ip
-            data["name"] = server_name
-            data["active"] = True
+
         servers.append(data)
 
     context = {"title": SITE_TITLE,
