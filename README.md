@@ -67,21 +67,25 @@ gunicorn -w 1 -b 0.0.0.0:8787 master:app
 
 4. Visit `127.0.0.1:8787` or `<your_ip>:8787` to see the website.
 
-### systemctl startup configuration 
+### Systemctl startup configuration 
 
-Notice that it's necessary to change the bianry executing code into using the absolute path
+You could do this by following https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04#step-4-configuring-gunicorn
+
+#### Notice that it's necessary to change the bianry executing code into using the absolute path
+
+That is, change this
 ```python
         ...
         info = os.popen("free -m").read().split('\n')[1].split()
         ...
 ```
-change it into something like
+into something like this
 ```python
         ...
         info = os.popen("/usr/bin/free -m").read().split('\n')[1].split()
         ...
 ```
-by using `which` command to check the absolute path of `free` and `nvidia-smi`. 
+By using `which` command to check the absolute path of `free` and `nvidia-smi`. 
 
 ## Contribution
 
