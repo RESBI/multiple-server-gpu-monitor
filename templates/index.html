@@ -60,7 +60,7 @@
 
             GPUs:
             <div class="nes-table-responsive">
-                <table class="nes-table">
+                <table class="nes-table is-bordered">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -84,7 +84,7 @@
                                 <progress class="nes-progress is-success" value="{{gpu.memory_used}}"
                                     max="{{gpu.memory_total}}"></progress>
                             </td>
-                            <td>{{gpu.utilization_gpu}} % 
+                            <td>{{gpu.utilization_gpu}} %
                                 <progress class="nes-progress is-success"
                                     value="{{gpu.utilization_gpu}}" max="100"></progress>
                             </td>
@@ -97,7 +97,7 @@
 
             Tasks:
             <div class="nes-table-responsive">
-                <table class="nes-table">
+                <table class="nes-table is-bordered">
                     <thead>
                         <tr>
                             <th>GPU Name</th>
@@ -119,7 +119,7 @@
                 </table>
             </div>
             {% else %}
-            Server is down!
+            <span class="nes-text is-error">Server is down!</span>
             <!-- 502 or error -->
             {% endif %}
         </div>
