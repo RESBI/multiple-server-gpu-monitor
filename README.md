@@ -1,10 +1,10 @@
-To monitor RAM and GPU usage on multiple servers. 
+To monitor RAM and GPU usage on multiple servers.
 
 In a computer science lab or company, you usually have multiple servers and GPUs running many deep learning experiments. You want to know which device is working and which is available at a glance with a minimum setup.
 
 ## Screenshots
 
-![](images/DeepinScreenshot_select-area_20230105194639.png)
+![](images/DeepinScreenshot_select-area_20230106200637.png)
 
 ## Installation
 
@@ -67,7 +67,7 @@ gunicorn -w 1 -b 0.0.0.0:8787 master:app
 
 4. Visit `127.0.0.1:8787` or `<your_ip>:8787` to see the website.
 
-### Systemctl startup configuration 
+### Systemctl startup configuration
 
 You could do this by following https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04#step-4-configuring-gunicorn
 
@@ -85,7 +85,7 @@ into something like this
         info = os.popen("/usr/bin/free -m").read().split('\n')[1].split()
         ...
 ```
-By using `which` command to check the absolute path of `free` and `nvidia-smi`. 
+By using `which` command to check the absolute path of `free` and `nvidia-smi`.
 
 ## Contribution
 
