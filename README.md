@@ -1,4 +1,4 @@
-To monitor RAM and GPU usage on multiple servers.
+To monite RAM and GPU usage on multiple servers.
 
 In a computer science lab or company, you usually have multiple servers and GPUs running many deep learning experiments. You want to know which device is working and which is available at a glance with a minimum setup.
 
