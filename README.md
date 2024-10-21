@@ -94,3 +94,4 @@ Pull requests are welcome. This is still an early project (and just for fun).
 TODOs:
 
 - Autorefresh
+- Intel Xeon Phi Coprocessor supportance
